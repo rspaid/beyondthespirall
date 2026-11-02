@@ -116,14 +116,67 @@ button,a{-webkit-tap-highlight-color:transparent}
 @media(prefers-reduced-motion:reduce){
  *,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
 }
+
+/* Opt-in, independently scrolling history display */
+.history-reader-shell{border:1px solid var(--line);border-radius:14px;background:#f1ede4;overflow:hidden;margin:20px 0 10px;box-shadow:0 12px 32px #132d2910}
+.history-reader-head{display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--ink);color:#f4f0e6;padding:14px 17px;font-weight:700;font-size:.68rem;letter-spacing:.12em}
+.history-reader-toggle{border:1px solid var(--gold);background:transparent;color:#efd4a5;border-radius:24px;padding:10px 12px;font-size:.7rem;letter-spacing:0;white-space:nowrap;min-height:42px}
+.history-reader-toggle:hover,.history-reader-toggle:focus-visible{background:#375148;color:#fff;outline:2px solid #efd4a5;outline-offset:2px}
+.history-reader{height:290px;overflow-y:hidden;padding:20px 24px;line-height:1.8;scrollbar-width:thin;scrollbar-color:#b0935d #ece6d9;overscroll-behavior:auto;touch-action:pan-y}
+.history-reader p:first-child{margin-top:0}.history-reader p:last-child{margin-bottom:0}
+.history-reader:focus-visible{outline:3px solid var(--gold);outline-offset:-3px}
+.history-reader-shell.active .history-reader{overflow-y:auto}
+.history-reader-foot{display:flex;justify-content:space-between;gap:10px;padding:10px 20px;border-top:1px solid var(--line);font-size:.68rem;color:var(--muted)}
+.history-sources{font-size:.75rem;color:var(--muted)}.history-sources a{text-underline-offset:3px}
+@media(hover:hover) and (pointer:fine){.history-reader-shell:hover .history-reader,.history-reader-shell:focus-within .history-reader{overflow-y:auto}.history-reader-toggle{display:none}}
+@media(max-width:650px){.history-reader{height:245px;padding:15px 17px}.history-reader-head{padding:10px 12px;font-size:.62rem}.history-reader-foot{padding:10px 14px}}
+
+/* Section 2: interactive mission values and matching independent reading panel */
+.mission-values{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:30px 0}
+.mission-value{min-width:0;text-align:left;display:flex;flex-direction:column;gap:12px;background:#24433d;border:1px solid #5b7569;color:#f4f0e6;border-radius:8px;padding:23px 19px;min-height:180px;transition:transform .2s,background .2s,border-color .2s}
+.mission-value:hover{transform:translateY(-3px);background:#305247}.mission-value[aria-pressed="true"]{background:#365c4e;border:2px solid #c7a76c}.mission-value:focus-visible{outline:3px solid #edca90;outline-offset:3px}
+.mission-value .mv-index{color:#d5ba82;font:400 2rem Georgia,serif}.mission-value .mv-name{font:400 1.34rem Georgia,serif}.mission-value .mv-tag{color:#d2dfd6;font-size:.78rem;line-height:1.5}
+.mission-detail{background:#25463b;border-left:4px solid #c7a76c;border-radius:4px;padding:22px 25px;min-height:118px;margin-bottom:28px}.mission-detail h3{font-size:1.35rem}.mission-detail p{font-size:.92rem;color:#dbe3dc;margin:0}
+.mission-reader-shell{border-color:#62786c;background:#e9e5d9;color:#132d29;max-width:920px}.mission-reader-shell .history-reader-head{background:#375449}.mission-reader-shell .history-reader{height:260px}.mission-reader-shell .history-reader-foot{color:#52655b}.mission-reference{font-size:.8rem;color:#cbd8d0;line-height:1.6;max-width:920px}.mission-reference a{color:#e5d1aa;text-underline-offset:3px}
+@media(max-width:850px){.mission-values{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:500px){.mission-values{gap:9px}.mission-value{padding:15px 12px;min-height:145px}.mission-value .mv-name{font-size:1.1rem}.mission-value .mv-index{font-size:1.5rem}.mission-detail{padding:17px}.mission-reader-shell .history-reader{height:225px}}
 </style>
 </head>
 <body>
 <nav><a class="logo" href="#top">BEYOND THE SPIRAL ↗</a><div class="links"><a href="#history">Origins</a><a href="#mission">Mission</a><a href="#exhibitions">Exhibitions</a><a href="#plan">Plan your day</a></div></nav>
 <header class="hero" id="top"><div><div class="eyebrow">NYC ARTS · AN INTERACTIVE VISITOR GUIDE</div><h1>BEYOND<br>THE<br>SPIRAL<span style="color:var(--gold)">.</span></h1><p>A journey through art, architecture, and the city beyond. Discover the Solomon R. Guggenheim Museum—one turn at a time.</p><a class="btn" href="#history">Enter the experience <span>↗</span></a></div><div class="spiral-scene" aria-label="Animated abstract spiral inspired by the Guggenheim Museum"><div class="halo"></div><div class="spiral"><div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div></div></div><div class="scroll-note">Scroll to begin ↓</div></header>
-<section class="section light" id="history"><div class="label reveal">01 / The origins</div><h2 class="reveal">A museum that<br>changed the rules.</h2><div class="grid2"><div class="reveal"><p class="lead">The Guggenheim began with one collector's ambition: to bring groundbreaking abstract art to a wider public.</p><p>In 1937, philanthropist Solomon R. Guggenheim established the Solomon R. Guggenheim Foundation. Guided by artist and advisor Hilla Rebay, he supported non-objective art—art that does not depict recognizable subjects. The foundation opened the Museum of Non-Objective Painting in 1939.</p><p>Renamed the Solomon R. Guggenheim Museum in 1952, the institution found its iconic home in 1959. Architect Frank Lloyd Wright designed a bold alternative to traditional galleries: a continuous spiral ramp wrapped around a soaring central atrium. The building transformed how visitors move through and experience art.</p></div><div class="architectural reveal" role="img" aria-label="Abstract illustration inspired by Frank Lloyd Wright's spiral architecture"><span>Architecture as an artwork</span></div></div><div class="timeline reveal"><div class="year"><strong>1937</strong><p>The Guggenheim Foundation is established.</p></div><div class="year"><strong>1939</strong><p>Museum of Non-Objective Painting opens.</p></div><div class="year"><strong>1943</strong><p>Frank Lloyd Wright receives the design commission.</p></div><div class="year"><strong>1952</strong><p>The museum takes Solomon Guggenheim's name.</p></div><div class="year"><strong>1959</strong><p>The landmark Fifth Avenue building opens.</p></div></div></section>
+<section class="section light" id="history"><div class="label reveal">01 / The origins</div><h2 class="reveal">A museum that<br>changed the rules.</h2><div class="grid2"><div class="reveal"><p class="lead">The Guggenheim began with one collector’s vision: to bring groundbreaking abstract art to a wider public.</p>
+<div class="history-reader-shell" id="history-reader-shell"><div class="history-reader-head"><span>THE STORY BEHIND THE SPIRAL</span><button id="history-reader-toggle" class="history-reader-toggle" type="button" aria-controls="history-reader" aria-expanded="false">Tap to read ↓</button></div>
+<div class="history-reader" id="history-reader" role="region" aria-label="Institutional history reading panel" tabindex="0"><p>Located on Manhattan’s Upper East Side, the Solomon R. Guggenheim Museum is an internationally recognized institution dedicated to modern and contemporary art. Yet its story began long before its famous spiral building existed.</p>
+<p>In 1937, American art collector and philanthropist Solomon R. Guggenheim established the Solomon R. Guggenheim Foundation to promote art and educate the public. With the guidance of artist and advisor Hilla Rebay, Guggenheim developed a passion for <strong>non-objective art</strong>, a form of abstraction that does not depict recognizable objects or scenes.</p>
+<p>Their vision became a reality in 1939 with the opening of the Museum of Non-Objective Painting in Manhattan. The museum introduced audiences to experimental artists, including Vasily Kandinsky, whose work challenged traditional ideas about artistic representation.</p>
+<p>As the collection expanded, the need for a permanent home became apparent. In 1943, Rebay commissioned renowned architect Frank Lloyd Wright to design a revolutionary museum unlike any other. The institution was renamed the Solomon R. Guggenheim Museum in 1952, honoring its founder.</p>
+<p>On October 21, 1959, Wright’s remarkable building opened on Fifth Avenue. Rather than conventional rectangular galleries, the museum featured a continuous spiral ramp surrounding a magnificent central atrium.</p>
+<p>Today, the Guggenheim represents far more than a collection of artworks. Its architecture transforms the experience of viewing art, making the building itself one of New York City’s most distinctive artistic achievements.</p></div>
+<div class="history-reader-foot"><span>Scroll within this story to keep reading</span><span aria-hidden="true">↓</span></div></div><p class="history-sources">Sources: <a href="https://www.guggenheim.org/about-us/history" target="_blank" rel="noopener">Guggenheim History ↗</a> · <a href="https://www.guggenheim.org/finding-aids/collection/a0006" target="_blank" rel="noopener">Wright archives ↗</a></p></div>
+<div class="architectural reveal" role="img" aria-label="Abstract illustration inspired by Frank Lloyd Wright's spiral architecture"><span>Architecture as an artwork</span></div></div><div class="timeline reveal"><div class="year"><strong>1937</strong><p>The Guggenheim Foundation is established.</p></div><div class="year"><strong>1939</strong><p>Museum of Non-Objective Painting opens.</p></div><div class="year"><strong>1943</strong><p>Frank Lloyd Wright receives the design commission.</p></div><div class="year"><strong>1952</strong><p>The museum takes Solomon Guggenheim's name.</p></div><div class="year"><strong>1959</strong><p>The landmark Fifth Avenue building opens.</p></div></div></section>
 <section class="chapter"><div class="reveal"><div class="eyebrow">An architecture unlike any other</div><h2>THE BUILDING<br>IS PART OF<br>THE ART.</h2><p>Wright's spiral turns the act of looking into a journey.</p></div></section>
-<section class="section dark" id="mission"><div class="label reveal">02 / Mission & vision</div><h2 class="reveal">Art should open<br>new ways of seeing.</h2><p class="statement reveal">The Guggenheim Foundation works to collect, preserve, and interpret modern and contemporary art—and to invite audiences into meaningful encounters with it.</p><p class="reveal" style="max-width:820px;color:#d5ded5">Through exhibitions, scholarship, and educational programs, the museum fosters understanding of art across cultures and generations. The four themes below summarize values reflected in its work; they are interpretive headings, not a separately published official vision statement.</p><div class="values"><div class="value reveal"><div class="num">01</div><h3>Innovation</h3><p>Championing experimentation in art, exhibitions, and architecture.</p></div><div class="value reveal"><div class="num">02</div><h3>Education</h3><p>Helping visitors engage with art through learning and interpretation.</p></div><div class="value reveal"><div class="num">03</div><h3>Access</h3><p>Creating opportunities for varied audiences to encounter art.</p></div><div class="value reveal"><div class="num">04</div><h3>Exchange</h3><p>Connecting artistic perspectives from different places and traditions.</p></div></div></section>
+<section class="section dark" id="mission">
+<div class="label reveal">02 / Mission &amp; Vision</div>
+<h2 class="reveal">Art changes how<br>we see the world.</h2>
+<p class="statement reveal">Preserving creativity. Challenging perspectives. Connecting cultures.</p>
+<p class="reveal" style="max-width:810px;color:#d5ded5">Discover four guiding themes reflected in the Guggenheim's work. Select a value to explore its meaning, then open the full story below.</p>
+<div class="mission-values reveal" role="group" aria-label="Explore mission values">
+<button class="mission-value" type="button" data-value="0" aria-pressed="true"><span class="mv-index">01</span><span class="mv-name">Innovation</span><span class="mv-tag">Challenge conventions</span></button>
+<button class="mission-value" type="button" data-value="1" aria-pressed="false"><span class="mv-index">02</span><span class="mv-name">Education</span><span class="mv-tag">Inspire lifelong learning</span></button>
+<button class="mission-value" type="button" data-value="2" aria-pressed="false"><span class="mv-index">03</span><span class="mv-name">Accessibility</span><span class="mv-tag">Welcome varied audiences</span></button>
+<button class="mission-value" type="button" data-value="3" aria-pressed="false"><span class="mv-index">04</span><span class="mv-name">Cultural Exchange</span><span class="mv-tag">Connect perspectives</span></button>
+</div>
+<div id="mission-value-detail" class="mission-detail" aria-live="polite"><h3>Innovation</h3><p>The Guggenheim supports experimentation in artistic practice, exhibitions, and the experience of encountering art.</p></div>
+<div class="history-reader-shell mission-reader-shell" id="mission-reader-shell"><div class="history-reader-head"><span>BEYOND THE ART: A MISSION TO INSPIRE</span><button id="mission-reader-toggle" class="history-reader-toggle" type="button" aria-controls="mission-reader" aria-expanded="false">Tap to read ↓</button></div>
+<div class="history-reader" id="mission-reader" role="region" aria-label="Mission and vision reading panel" tabindex="0">
+<p>The Solomon R. Guggenheim Museum strives to make modern and contemporary art meaningful and accessible to audiences around the world. As part of the Solomon R. Guggenheim Foundation, its mission centers on collecting, preserving, and interpreting art while encouraging innovation, cultural exchange, and public education.</p>
+<p>Through exhibitions, research, educational programs, and international collaborations, the Guggenheim seeks to deepen people's understanding and appreciation of artistic expression. Its mission extends beyond displaying masterpieces: the museum encourages visitors to engage with unfamiliar ideas, discover different cultural perspectives, and reconsider conventional ways of viewing art.</p>
+<p><strong>Innovation, education, accessibility, and cultural exchange</strong> are central themes reflected in the institution's work. Its educational initiatives create opportunities for audiences of different ages and backgrounds to learn about art, while its international network connects artistic traditions and contemporary voices from around the world.</p>
+<p>Although the foundation does not publish a separate overarching vision statement on its main About Us page, its mission suggests a broader aspiration: a world in which art brings people together, encourages curiosity, and continually expands our understanding of creativity and culture.</p>
+</div><div class="history-reader-foot"><span>Hover (desktop) or tap to read (mobile)</span><span aria-hidden="true">↓</span></div></div>
+<p class="mission-reference">The four values and concluding vision are our interpretation of the institution's work, not an official separate vision statement. Sources: <a href="https://www.guggenheim.org/about-us" target="_blank" rel="noopener">Guggenheim About Us ↗</a> · <a href="https://www.guggenheim.org/wp-content/uploads/2025/01/guggenheim-collections-management-policy-20241212.pdf" target="_blank" rel="noopener">Collections Management Policy ↗</a></p>
+</section>
 
 <section class="exhibit-stage" id="exhibitions">
  <div class="stage-head reveal"><div><div class="eyebrow">03 / Currently on view · November 2026</div><h2>The museum<br>comes alive.</h2></div><p>Explore four exhibitions and collections featured by the Guggenheim. Move across each artwork-inspired scene to discover more.</p></div>
@@ -211,5 +264,36 @@ pins.forEach((p,i)=>{function jump(){cards[i].scrollIntoView({behavior:window.ma
 if('IntersectionObserver' in window){const ob=new IntersectionObserver(entries=>{const vis=entries.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio);if(vis.length)activate(Number(vis[0].target.dataset.index))},{rootMargin:'-25% 0px -25% 0px',threshold:[0,.2,.5,.8]});cards.forEach(c=>ob.observe(c))}
 const lines=[['10:00 AM','Noi Due Cafe (GF alternative: Modern Bread and Bagel)'],['11:00 AM','Central Park walk or 86th Street bus'],['12:00 PM','Solomon R. Guggenheim Museum'],['2:00 PM','Church of St. Ignatius Loyola, then lunch at Grill Point'],['4:00 PM','Ferry to Roosevelt Island'],['6:00 PM','Bike on Roosevelt Island and dinner at Granny Annie’s Bar & Kitchen']];
 document.getElementById('save-journey').addEventListener('click',()=>{const content='A DAY BEYOND THE SPIRAL — SUGGESTED ITINERARY\n\n'+lines.map(x=>x.join(' — ')).join('\n')+'\n\nOTHER PLACES: Park Avenue Armory, The Frick Collection, The Conservatory, Cooper Hewitt Smithsonian Design Museum, Neue Galerie New York.\n\nCheck hours, travel routes, ferry service and admission before visiting.';const a=document.createElement('a'),url=URL.createObjectURL(new Blob([content],{type:'text/plain;charset=utf-8'}));a.href=url;a.download='guggenheim-day-itinerary.txt';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),500)});
+})();
+
+(function(){
+ const shell=document.getElementById('history-reader-shell');
+ const toggle=document.getElementById('history-reader-toggle');
+ const panel=document.getElementById('history-reader');
+ if(!shell||!toggle||!panel)return;
+ function setActive(active){shell.classList.toggle('active',active);toggle.setAttribute('aria-expanded',String(active));toggle.textContent=active?'Done reading ↑':'Tap to read ↓';}
+ toggle.addEventListener('click',function(){const active=!shell.classList.contains('active');setActive(active);if(active)panel.focus({preventScroll:true});});
+ document.addEventListener('pointerdown',function(e){if(!shell.contains(e.target)&&shell.classList.contains('active'))setActive(false);});
+ document.addEventListener('keydown',function(e){if(e.key==='Escape'&&shell.classList.contains('active')){setActive(false);toggle.focus();}});
+})();
+
+(function(){
+ const details=[
+  ['Innovation','The Guggenheim supports experimentation in artistic practice, exhibitions, and the experience of encountering art.'],
+  ['Education','The museum offers learning experiences that help audiences engage with and interpret art through programs and research.'],
+  ['Accessibility','Its programming and visitor services seek to create opportunities for people with different experiences and needs to encounter art.'],
+  ['Cultural Exchange','The foundation connects diverse artistic voices and audiences through exhibitions and international collaborations.']
+ ];
+ const display=document.getElementById('mission-value-detail');
+ document.querySelectorAll('.mission-value').forEach(btn=>btn.addEventListener('click',()=>{
+  document.querySelectorAll('.mission-value').forEach(b=>b.setAttribute('aria-pressed',String(b===btn)));
+  const [heading,body]=details[Number(btn.dataset.value)];
+  display.innerHTML='';const h=document.createElement('h3'),p=document.createElement('p');h.textContent=heading;p.textContent=body;display.append(h,p);
+ }));
+ const shell=document.getElementById('mission-reader-shell');const toggle=document.getElementById('mission-reader-toggle');const panel=document.getElementById('mission-reader');
+ function setActive(active){shell.classList.toggle('active',active);toggle.setAttribute('aria-expanded',String(active));toggle.textContent=active?'Done reading ↑':'Tap to read ↓';}
+ toggle.addEventListener('click',()=>{const active=!shell.classList.contains('active');setActive(active);if(active)panel.focus({preventScroll:true});});
+ document.addEventListener('pointerdown',e=>{if(!shell.contains(e.target)&&shell.classList.contains('active'))setActive(false);});
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&shell.classList.contains('active')){setActive(false);toggle.focus();}});
 })();
 </script></body></html>
